@@ -15,6 +15,6 @@ spec:
       containers:
         - name: java-webapp
           image: 145023139102.dkr.ecr.ap-south-1.amazonaws.com/mywebapp:latest
+          imagePullPolicy: Always
           ports:
             - containerPort: 8080
-            imagePullPolicy: Always
