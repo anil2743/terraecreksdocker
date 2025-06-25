@@ -1,4 +1,3 @@
-
 # ----------------------------------------
 # ✅ VPC
 # ----------------------------------------
@@ -78,4 +77,20 @@ module "eks" {
 # ----------------------------------------
 resource "aws_ecr_repository" "repo" {
   name = "mywebapp"
+}
+
+# ----------------------------------------
+# ✅ EC2 Instance for GitHub Actions / Admin
+# ----------------------------------------
+resource "aws_instance" "devops_admin" {
+  ami                         = "ami-0f58b397bc5c1f2e8" # Ubuntu 22.04 LTS (ap-south-1)
+  instance_type               = "t3.micro"
+  subnet_id                   = aws_subnet.public1.id
+  associate_public_ip_address = true
+  key_name                    = "terraform2" # 🔐 Must match an existing key in AWS
+  vpc_security_group_ids      = [module.eks.cluster_primary_security_group_id]
+
+  tags = {
+    Name = "devops-admin"
+  }
 }
