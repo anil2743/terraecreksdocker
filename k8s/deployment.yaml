@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: java-webapp
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: java-webapp
+  template:
+    metadata:
+      labels:
+        app: java-webapp
+    spec:
+      containers:
+        - name: java-webapp
+          image: 145023139102.dkr.ecr.ap-south-1.amazonaws.com/mywebapp:latest
+          ports:
+            - containerPort: 8080
+            imagePullPolicy: Always
