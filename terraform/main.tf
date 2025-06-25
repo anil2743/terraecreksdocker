@@ -76,18 +76,19 @@ module "eks" {
 # ✅ ECR Repo
 # ----------------------------------------
 resource "aws_ecr_repository" "repo" {
-  name = "mywebapp"
+  name         = "mywebapp"
+  force_delete = true
 }
 
 # ----------------------------------------
-# ✅ EC2 Instance for GitHub Actions / Admin
+# ✅ EC2 Instance for Admin (Self-hosted runner)
 # ----------------------------------------
 resource "aws_instance" "devops_admin" {
-  ami                         = "ami-0f58b397bc5c1f2e8" # Ubuntu 22.04 LTS (ap-south-1)
+  ami                         = "ami-0f58b397bc5c1f2e8" # Ubuntu 22.04 LTS
   instance_type               = "t3.micro"
   subnet_id                   = aws_subnet.public1.id
   associate_public_ip_address = true
-  key_name                    = "terraform2" # 🔐 Must match an existing key in AWS
+  key_name                    = "terraform2"
   vpc_security_group_ids      = [module.eks.cluster_primary_security_group_id]
 
   tags = {
