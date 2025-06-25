@@ -1,0 +1,10 @@
+# Ignore Terraform working directory files
+.terraform/
+*.tfstate
+*.tfstate.backup
+*.zip
+*.exe
+*.log
+terraform.tfvars
+.terraform.lock.hcl
+crash.log
