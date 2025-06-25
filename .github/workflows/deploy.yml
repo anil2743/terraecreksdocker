@@ -6,7 +6,7 @@ on:
 
 jobs:
   build-and-deploy:
-  runs-on: self-hosted
+    runs-on: self-hosted  # ✅ This makes it use your EC2 runner
 
     steps:
     - name: Checkout Source Code
