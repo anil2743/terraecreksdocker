@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout
+    - name: Checkout Source Code
       uses: actions/checkout@v3
 
     - name: Set up Java
@@ -18,7 +18,7 @@ jobs:
         distribution: 'temurin'
         java-version: '17'
 
-    - name: Build WAR
+    - name: Build WAR File
       run: mvn clean package -DskipTests
 
     - name: Configure AWS Credentials
@@ -27,6 +27,9 @@ jobs:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: ap-south-1
+
+    - name: Debug AWS Credentials
+      run: aws sts get-caller-identity
 
     - name: Build Docker Image
       run: |
@@ -42,6 +45,7 @@ jobs:
     - name: Update kubeconfig for EKS
       run: |
         aws eks update-kubeconfig --name java-cluster --region ap-south-1
+        kubectl get nodes  # Verify cluster access
 
     - name: Deploy to EKS
       run: |
