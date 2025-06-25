@@ -81,15 +81,63 @@ resource "aws_ecr_repository" "repo" {
 }
 
 # ----------------------------------------
-# ✅ EC2 Instance for Admin (Self-hosted runner)
+# ✅ IAM Role + Policies for EC2 (Self-hosted Runner)
+# ----------------------------------------
+resource "aws_iam_role" "ec2_role" {
+  name = "terraform_eks"
+
+  assume_role_policy = jsonencode({
+    Version = "2012-10-17",
+    Statement = [{
+      Effect = "Allow",
+      Principal = {
+        Service = "ec2.amazonaws.com"
+      },
+      Action = "sts:AssumeRole"
+    }]
+  })
+}
+
+resource "aws_iam_role_policy_attachment" "eks_cluster_policy" {
+  role       = aws_iam_role.ec2_role.name
+  policy_arn = "arn:aws:iam::aws:policy/AmazonEKSClusterPolicy"
+}
+
+resource "aws_iam_role_policy_attachment" "eks_worker_policy" {
+  role       = aws_iam_role.ec2_role.name
+  policy_arn = "arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy"
+}
+
+resource "aws_iam_role_policy_attachment" "ecr_power_user" {
+  role       = aws_iam_role.ec2_role.name
+  policy_arn = "arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryPowerUser"
+}
+
+resource "aws_iam_instance_profile" "ec2_profile" {
+  name = "terraform-ec2-profile"
+  role = aws_iam_role.ec2_role.name
+}
+
+# ----------------------------------------
+# ✅ EC2 Instance for GitHub Actions Self-hosted Runner
 # ----------------------------------------
 resource "aws_instance" "devops_admin" {
-  ami                         = "ami-0f58b397bc5c1f2e8" # Ubuntu 22.04 LTS
+  ami                         = "ami-0f58b397bc5c1f2e8" # Ubuntu 22.04 LTS (update if needed)
   instance_type               = "t3.micro"
   subnet_id                   = aws_subnet.public1.id
   associate_public_ip_address = true
   key_name                    = "terraform2"
   vpc_security_group_ids      = [module.eks.cluster_primary_security_group_id]
+
+  iam_instance_profile = aws_iam_instance_profile.ec2_profile.name
+
+  user_data = <<-EOF
+              #!/bin/bash
+              apt update -y
+              apt install -y unzip curl maven awscli
+              curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+              chmod +x kubectl && mv kubectl /usr/local/bin/
+              EOF
 
   tags = {
     Name = "devops-admin"
