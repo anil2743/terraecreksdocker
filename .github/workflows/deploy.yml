@@ -1,49 +1,49 @@
 name: build-and-deploy-html-db
 
-  on:
-    push:
-      branches:
-        - master
+on:
+  push:
+    branches:
+      - master
 
-  jobs:
-    build-and-deploy:
-      runs-on: self-hosted
-      steps:
-        - name: Checkout code
-          uses: actions/checkout@v3
+jobs:
+  build-and-deploy:
+    runs-on: self-hosted
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-        - name: Configure AWS Credentials
-          uses: aws-actions/configure-aws-credentials@v1
-          with:
-            aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-            aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-            aws-region: ${{ secrets.AWS_REGION }}
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }}
 
-        - name: Update kubeconfig
-          run: aws eks update-kubeconfig --name html-db-eks-cluster --region ${{ secrets.AWS_REGION }}
+      - name: Update kubeconfig
+        run: aws eks update-kubeconfig --name html-db-eks-cluster --region ${{ secrets.AWS_REGION }}
 
-        - name: Login to Amazon ECR
-          id: login-ecr
-          uses: aws-actions/amazon-ecr-login@v1
+      - name: Login to Amazon ECR
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v1
 
-        - name: Set up Java
-          uses: actions/setup-java@v3
-          with:
-            java-version: '17'
-            distribution: 'adopt'
+      - name: Set up Java
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'adopt'
 
-        - name: Build with Maven
-          run: mvn -B package --file pom.xml
+      - name: Build with Maven
+        run: mvn -B package --file pom.xml
 
-        - name: Build and tag Docker image
-          run: |
-            docker build -t html-db-app .
-            docker tag html-db-app:latest ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/html-db-app:latest
+      - name: Build and tag Docker image
+        run: |
+          docker build -t html-db-app .
+          docker tag html-db-app:latest ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/html-db-app:latest
 
-        - name: Push Docker image to ECR
-          run: docker push ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/html-db-app:latest
+      - name: Push Docker image to ECR
+        run: docker push ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/html-db-app:latest
 
-        - name: Deploy to EKS
-          run: |
-            kubectl apply -f k8s/deployment.yaml
-            kubectl apply -f k8s/service.yaml
+      - name: Deploy to EKS
+        run: |
+          kubectl apply -f k8s/deployment.yaml
+          kubectl apply -f k8s/service.yaml
