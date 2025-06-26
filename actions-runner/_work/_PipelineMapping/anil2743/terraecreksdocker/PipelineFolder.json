@@ -1,0 +1,12 @@
+﻿{
+  "repositoryName": "anil2743/terraecreksdocker",
+  "pipelineDirectory": "terraecreksdocker",
+  "workspaceDirectory": "terraecreksdocker\\terraecreksdocker",
+  "repositories": {
+    "anil2743/terraecreksdocker": {
+      "repositoryPath": "terraecreksdocker\\terraecreksdocker",
+      "lastRunOn": "06/26/2025 19:04:30 +05:30"
+    }
+  },
+  "lastRunOn": "06/26/2025 19:33:50 +05:30"
+}
