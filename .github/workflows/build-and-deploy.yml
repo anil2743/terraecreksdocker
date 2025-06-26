@@ -22,44 +22,6 @@ jobs:
       - name: Update kubeconfig
         run: aws eks update-kubeconfig --name html-db-eks-cluster --region ${{ secrets.AWS_REGION }}
 
-      - name: Install Docker
-        run: |
-          # Download and install Docker Desktop
-          $url = "https://desktop.docker.com/win/main/amd64/Docker%20Desktop%20Installer.exe"
-          $output = "$env:TEMP\DockerDesktopInstaller.exe"
-          Invoke-WebRequest -Uri $url -OutFile $output
-          Start-Process -FilePath $output -Args "/silent", "/allusers" -Wait
-          # Add Docker to system PATH persistently
-          $dockerPath = "C:\Program Files\Docker\Docker\resources\bin"
-          $currentPath = [Environment]::GetEnvironmentVariable("Path", [EnvironmentVariableTarget]::Machine)
-          if ($currentPath -notlike "*$dockerPath*") {
-              [Environment]::SetEnvironmentVariable("Path", "$currentPath;$dockerPath", [EnvironmentVariableTarget]::Machine)
-              $env:Path = [Environment]::GetEnvironmentVariable("Path", [EnvironmentVariableTarget]::Machine)
-          }
-          # Wait for Docker service and verify
-          Start-Sleep -Seconds 60
-          $serviceName = "Docker Desktop Service"
-          if (!(Get-Service $serviceName -ErrorAction SilentlyContinue)) {
-              Write-Host "Service $serviceName not found, attempting to start Docker manually"
-              # Fallback to check if Docker CLI is functional
-          }
-          $maxAttempts = 10
-          $attempt = 0
-          while ($attempt -lt $maxAttempts) {
-              try {
-                  docker --version
-                  if (Get-Service $serviceName -ErrorAction SilentlyContinue) {
-                      Start-Service -Name $serviceName
-                  }
-                  break
-              } catch {
-                  Start-Sleep -Seconds 10
-                  $attempt++
-              }
-          }
-          if ($attempt -ge $maxAttempts) { throw "Docker failed to start" }
-        shell: powershell
-
       - name: Login to Amazon ECR
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v1
