@@ -38,14 +38,19 @@ jobs:
           }
           # Wait for Docker service and verify
           Start-Sleep -Seconds 60
-          if (!(Get-Service "Docker" -ErrorAction SilentlyContinue)) {
-              Start-Service -Name "Docker"
+          $serviceName = "Docker Desktop Service"
+          if (!(Get-Service $serviceName -ErrorAction SilentlyContinue)) {
+              Write-Host "Service $serviceName not found, attempting to start Docker manually"
+              # Fallback to check if Docker CLI is functional
           }
           $maxAttempts = 10
           $attempt = 0
           while ($attempt -lt $maxAttempts) {
               try {
                   docker --version
+                  if (Get-Service $serviceName -ErrorAction SilentlyContinue) {
+                      Start-Service -Name $serviceName
+                  }
                   break
               } catch {
                   Start-Sleep -Seconds 10
