@@ -1,0 +1,11 @@
+﻿{
+  "agentId": 24,
+  "agentName": "ANIL",
+  "poolId": 1,
+  "poolName": "Default",
+  "serverUrl": "https://pipelinesghubeus13.actions.githubusercontent.com/eeqdraAYuAneN2AjHiyMYh7ghdQNNhAYqNqfoPPpJQFIqqFas1/",
+  "gitHubUrl": "https://github.com/anil2743/terraecreksdocker",
+  "workFolder": "_work",
+  "useV2Flow": true,
+  "serverUrlV2": "https://broker.actions.githubusercontent.com/"
+}
