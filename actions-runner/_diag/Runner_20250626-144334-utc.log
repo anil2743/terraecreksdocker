@@ -1,0 +1,98 @@
+[2025-06-26 14:43:34Z INFO HostContext] No proxy settings were found based on environmental variables (http_proxy/https_proxy/HTTP_PROXY/HTTPS_PROXY)
+[2025-06-26 14:43:34Z INFO HostContext] Well known directory 'Bin': 'C:\Users\anith\eclipse-workspace\HtmlDb\actions-runner\bin'
+[2025-06-26 14:43:34Z INFO HostContext] Well known directory 'Root': 'C:\Users\anith\eclipse-workspace\HtmlDb\actions-runner'
+[2025-06-26 14:43:34Z INFO HostContext] Well known config file 'Credentials': 'C:\Users\anith\eclipse-workspace\HtmlDb\actions-runner\.credentials'
+[2025-06-26 14:43:34Z INFO HostContext] Well known directory 'Bin': 'C:\Users\anith\eclipse-workspace\HtmlDb\actions-runner\bin'
+[2025-06-26 14:43:34Z INFO HostContext] Well known directory 'Root': 'C:\Users\anith\eclipse-workspace\HtmlDb\actions-runner'
+[2025-06-26 14:43:34Z INFO HostContext] Well known config file 'Runner': 'C:\Users\anith\eclipse-workspace\HtmlDb\actions-runner\.runner'
+[2025-06-26 14:43:34Z INFO Listener] Runner is built for Windows (X64) - win-x64.
+[2025-06-26 14:43:34Z INFO Listener] RuntimeInformation: Microsoft Windows 10.0.26100.
+[2025-06-26 14:43:34Z INFO Listener] Version: 2.325.0
+[2025-06-26 14:43:34Z INFO Listener] Commit: 71ed7cd46223bd5d61633445946813012b502d54
+[2025-06-26 14:43:34Z INFO Listener] Culture: en-IN
+[2025-06-26 14:43:34Z INFO Listener] UI Culture: en-US
+[2025-06-26 14:43:34Z INFO HostContext] Well known directory 'Bin': 'C:\Users\anith\eclipse-workspace\HtmlDb\actions-runner\bin'
+[2025-06-26 14:43:34Z INFO HostContext] Well known directory 'Root': 'C:\Users\anith\eclipse-workspace\HtmlDb\actions-runner'
+[2025-06-26 14:43:34Z INFO Listener] Validating directory permissions for: 'C:\Users\anith\eclipse-workspace\HtmlDb\actions-runner'
+[2025-06-26 14:43:34Z INFO CommandLineParser] Parse
+[2025-06-26 14:43:34Z INFO CommandLineParser] Parsing 1 args
+[2025-06-26 14:43:34Z INFO CommandLineParser] parsing argument
+[2025-06-26 14:43:34Z INFO CommandLineParser] HasArgs: False
+[2025-06-26 14:43:34Z INFO CommandLineParser] Adding Command: remove
+[2025-06-26 14:43:34Z INFO Listener] Arguments parsed
+[2025-06-26 14:43:34Z INFO Runner] ExecuteCommand
+[2025-06-26 14:43:34Z INFO ConfigurationStore] currentAssemblyLocation: C:\Users\anith\eclipse-workspace\HtmlDb\actions-runner\bin\Runner.Listener.dll
+[2025-06-26 14:43:34Z INFO HostContext] Well known directory 'Bin': 'C:\Users\anith\eclipse-workspace\HtmlDb\actions-runner\bin'
+[2025-06-26 14:43:34Z INFO ConfigurationStore] binPath: C:\Users\anith\eclipse-workspace\HtmlDb\actions-runner\bin
+[2025-06-26 14:43:34Z INFO HostContext] Well known directory 'Bin': 'C:\Users\anith\eclipse-workspace\HtmlDb\actions-runner\bin'
+[2025-06-26 14:43:34Z INFO HostContext] Well known directory 'Root': 'C:\Users\anith\eclipse-workspace\HtmlDb\actions-runner'
+[2025-06-26 14:43:34Z INFO ConfigurationStore] RootFolder: C:\Users\anith\eclipse-workspace\HtmlDb\actions-runner
+[2025-06-26 14:43:34Z INFO HostContext] Well known directory 'Bin': 'C:\Users\anith\eclipse-workspace\HtmlDb\actions-runner\bin'
+[2025-06-26 14:43:34Z INFO HostContext] Well known directory 'Root': 'C:\Users\anith\eclipse-workspace\HtmlDb\actions-runner'
+[2025-06-26 14:43:34Z INFO HostContext] Well known config file 'Runner': 'C:\Users\anith\eclipse-workspace\HtmlDb\actions-runner\.runner'
+[2025-06-26 14:43:34Z INFO ConfigurationStore] ConfigFilePath: C:\Users\anith\eclipse-workspace\HtmlDb\actions-runner\.runner
+[2025-06-26 14:43:34Z INFO HostContext] Well known directory 'Bin': 'C:\Users\anith\eclipse-workspace\HtmlDb\actions-runner\bin'
+[2025-06-26 14:43:34Z INFO HostContext] Well known directory 'Root': 'C:\Users\anith\eclipse-workspace\HtmlDb\actions-runner'
+[2025-06-26 14:43:34Z INFO HostContext] Well known config file 'MigratedRunner': 'C:\Users\anith\eclipse-workspace\HtmlDb\actions-runner\.runner_migrated'
+[2025-06-26 14:43:34Z INFO ConfigurationStore] MigratedConfigFilePath: C:\Users\anith\eclipse-workspace\HtmlDb\actions-runner\.runner_migrated
+[2025-06-26 14:43:34Z INFO HostContext] Well known directory 'Bin': 'C:\Users\anith\eclipse-workspace\HtmlDb\actions-runner\bin'
+[2025-06-26 14:43:34Z INFO HostContext] Well known directory 'Root': 'C:\Users\anith\eclipse-workspace\HtmlDb\actions-runner'
+[2025-06-26 14:43:34Z INFO HostContext] Well known config file 'Credentials': 'C:\Users\anith\eclipse-workspace\HtmlDb\actions-runner\.credentials'
+[2025-06-26 14:43:34Z INFO ConfigurationStore] CredFilePath: C:\Users\anith\eclipse-workspace\HtmlDb\actions-runner\.credentials
+[2025-06-26 14:43:34Z INFO HostContext] Well known directory 'Bin': 'C:\Users\anith\eclipse-workspace\HtmlDb\actions-runner\bin'
+[2025-06-26 14:43:34Z INFO HostContext] Well known directory 'Root': 'C:\Users\anith\eclipse-workspace\HtmlDb\actions-runner'
+[2025-06-26 14:43:34Z INFO HostContext] Well known config file 'MigratedCredentials': 'C:\Users\anith\eclipse-workspace\HtmlDb\actions-runner\.credentials_migrated'
+[2025-06-26 14:43:34Z INFO ConfigurationStore] MigratedCredFilePath: C:\Users\anith\eclipse-workspace\HtmlDb\actions-runner\.credentials_migrated
+[2025-06-26 14:43:34Z INFO HostContext] Well known directory 'Bin': 'C:\Users\anith\eclipse-workspace\HtmlDb\actions-runner\bin'
+[2025-06-26 14:43:34Z INFO HostContext] Well known directory 'Root': 'C:\Users\anith\eclipse-workspace\HtmlDb\actions-runner'
+[2025-06-26 14:43:34Z INFO HostContext] Well known config file 'Service': 'C:\Users\anith\eclipse-workspace\HtmlDb\actions-runner\.service'
+[2025-06-26 14:43:34Z INFO ConfigurationStore] ServiceConfigFilePath: C:\Users\anith\eclipse-workspace\HtmlDb\actions-runner\.service
+[2025-06-26 14:43:34Z INFO CommandSettings] Flag 'help': 'False'
+[2025-06-26 14:43:34Z INFO CommandSettings] Flag 'version': 'False'
+[2025-06-26 14:43:34Z INFO CommandSettings] Flag 'commit': 'False'
+[2025-06-26 14:43:34Z INFO CommandSettings] Flag 'check': 'False'
+[2025-06-26 14:43:34Z INFO CommandSettings] Command 'configure': 'False'
+[2025-06-26 14:43:34Z INFO CommandSettings] Command 'remove': 'True'
+[2025-06-26 14:43:34Z INFO CommandSettings] Flag 'local': 'False'
+[2025-06-26 14:43:34Z INFO ConfigurationStore] IsServiceConfigured()
+[2025-06-26 14:43:34Z INFO ConfigurationStore] IsServiceConfigured: True
+[2025-06-26 14:43:34Z INFO Terminal] WRITE LINE: Removing service
+[2025-06-26 14:43:34Z INFO HostContext] Well known directory 'Bin': 'C:\Users\anith\eclipse-workspace\HtmlDb\actions-runner\bin'
+[2025-06-26 14:43:34Z INFO HostContext] Well known directory 'Root': 'C:\Users\anith\eclipse-workspace\HtmlDb\actions-runner'
+[2025-06-26 14:43:34Z INFO HostContext] Well known config file 'Service': 'C:\Users\anith\eclipse-workspace\HtmlDb\actions-runner\.service'
+[2025-06-26 14:43:35Z INFO NativeWindowsServiceHelper] Successfully stopped the service
+[2025-06-26 14:43:35Z INFO NativeWindowsServiceHelper] Trying to delete service actions.runner.anil2743-terraecreksdocker.ANIL
+[2025-06-26 14:43:35Z INFO NativeWindowsServiceHelper] successfully removed the service
+[2025-06-26 14:43:35Z INFO HostContext] Well known directory 'Bin': 'C:\Users\anith\eclipse-workspace\HtmlDb\actions-runner\bin'
+[2025-06-26 14:43:35Z INFO HostContext] Well known directory 'Root': 'C:\Users\anith\eclipse-workspace\HtmlDb\actions-runner'
+[2025-06-26 14:43:35Z INFO ConfigurationStore] Read setting file: 395 chars
+[2025-06-26 14:43:35Z INFO HostContext] Well known directory 'Bin': 'C:\Users\anith\eclipse-workspace\HtmlDb\actions-runner\bin'
+[2025-06-26 14:43:35Z INFO HostContext] Well known directory 'Root': 'C:\Users\anith\eclipse-workspace\HtmlDb\actions-runner'
+[2025-06-26 14:43:35Z INFO HostContext] Well known directory 'Work': 'C:\Users\anith\eclipse-workspace\HtmlDb\actions-runner\_work'
+[2025-06-26 14:43:35Z INFO HostContext] Well known directory 'Bin': 'C:\Users\anith\eclipse-workspace\HtmlDb\actions-runner\bin'
+[2025-06-26 14:43:35Z INFO NativeWindowsServiceHelper] Calculated unique group name GITHUB_ActionsRunner_Ga65da
+[2025-06-26 14:43:35Z INFO NativeWindowsServiceHelper] Remove the group GITHUB_ActionsRunner_Ga65da for the folder C:\Users\anith\eclipse-workspace\HtmlDb\actions-runner.
+[2025-06-26 14:43:35Z INFO NativeWindowsServiceHelper] Remove the group GITHUB_ActionsRunner_Ga65da for the folder C:\Users\anith\eclipse-workspace\HtmlDb\actions-runner\_work.
+[2025-06-26 14:43:35Z INFO NativeWindowsServiceHelper] Delete the group GITHUB_ActionsRunner_Ga65da.
+[2025-06-26 14:43:35Z INFO NativeWindowsServiceHelper] Local Group 'GITHUB_ActionsRunner_Ga65da' deleted
+[2025-06-26 14:43:35Z INFO Terminal] WRITE LINE: 
+[2025-06-26 14:43:35Z INFO ConfigurationStore] IsConfigured()
+[2025-06-26 14:43:35Z INFO ConfigurationStore] IsConfigured: True
+[2025-06-26 14:43:35Z INFO ConfigurationStore] HasCredentials()
+[2025-06-26 14:43:35Z INFO ConfigurationStore] stored True
+[2025-06-26 14:43:35Z INFO CommandSettings] Arg 'token': ''
+[2025-06-26 14:43:35Z INFO CommandSettings] Flag 'unattended': 'False'
+[2025-06-26 14:43:35Z INFO PromptManager] ReadValue
+[2025-06-26 14:43:35Z INFO Terminal] WRITE: Enter runner remove token: 
+[2025-06-26 14:43:35Z INFO Terminal] READ SECRET
+[2025-06-26 14:46:02Z INFO Terminal] Read value: '***'
+[2025-06-26 14:46:03Z ERR  Terminal] WRITE ERROR: Http response code: NotFound from 'POST https://api.github.com/actions/runner-registration' (Request Id: D7F5:3A0F3A:36966C:3DBF62:685D5D2B)
+[2025-06-26 14:46:03Z ERR  Terminal] WRITE ERROR: {"message":"Not Found","documentation_url":"https://docs.github.com/rest","status":"404"}
+[2025-06-26 14:46:03Z ERR  Terminal] WRITE ERROR: Failed: Removing runner from the server
+[2025-06-26 14:46:03Z ERR  Runner] System.Net.Http.HttpRequestException: Response status code does not indicate success: 404 (Not Found).
+   at System.Net.Http.HttpResponseMessage.EnsureSuccessStatusCode()
+   at GitHub.Runner.Listener.Configuration.ConfigurationManager.GetTenantCredential(String githubUrl, String githubToken, String runnerEvent)
+   at GitHub.Runner.Listener.Configuration.ConfigurationManager.UnconfigureAsync(CommandSettings command)
+   at GitHub.Runner.Listener.Runner.ExecuteCommand(CommandSettings command)
+[2025-06-26 14:46:03Z ERR  Terminal] WRITE ERROR: Response status code does not indicate success: 404 (Not Found).
+[2025-06-26 14:46:03Z INFO Listener] Runner execution has finished with return code 1
