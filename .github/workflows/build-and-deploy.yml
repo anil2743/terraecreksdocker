@@ -29,10 +29,31 @@ jobs:
           $output = "$env:TEMP\DockerDesktopInstaller.exe"
           Invoke-WebRequest -Uri $url -OutFile $output
           Start-Process -FilePath $output -Args "/silent", "/allusers" -Wait
-          # Add Docker to PATH and wait for service
-          $env:Path += ";C:\Program Files\Docker\Docker\resources\bin"
-          Start-Sleep -Seconds 30
-          docker --version
+          # Add Docker to system PATH persistently
+          $dockerPath = "C:\Program Files\Docker\Docker\resources\bin"
+          $currentPath = [Environment]::GetEnvironmentVariable("Path", [EnvironmentVariableTarget]::Machine)
+          if ($currentPath -notlike "*$dockerPath*") {
+              [Environment]::SetEnvironmentVariable("Path", "$currentPath;$dockerPath", [EnvironmentVariableTarget]::Machine)
+              $env:Path = [Environment]::GetEnvironmentVariable("Path", [EnvironmentVariableTarget]::Machine)
+          }
+          # Wait for Docker service and verify
+          Start-Sleep -Seconds 60
+          if (!(Get-Service "Docker" -ErrorAction SilentlyContinue)) {
+              Start-Service -Name "Docker"
+          }
+          $maxAttempts = 10
+          $attempt = 0
+          while ($attempt -lt $maxAttempts) {
+              try {
+                  docker --version
+                  break
+              } catch {
+                  Start-Sleep -Seconds 10
+                  $attempt++
+              }
+          }
+          if ($attempt -ge $maxAttempts) { throw "Docker failed to start" }
+        shell: powershell
 
       - name: Login to Amazon ECR
         id: login-ecr
