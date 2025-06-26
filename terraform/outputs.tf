@@ -1,15 +1,23 @@
-output "ecr_repo_url" {
-  value = aws_ecr_repository.repo.repository_url
-}
+ output "eks_cluster_endpoint" {
+   value = aws_eks_cluster.html_db_cluster.endpoint
+ }
 
-output "cluster_name" {
-  value = module.eks.cluster_name
-}
+ output "vpc_id" {
+   value = aws_vpc.html_db_vpc.id
+ }
 
-output "cluster_endpoint" {
-  value = module.eks.cluster_endpoint
-}
+ output "public_subnet_id_1" {
+   value = aws_subnet.html_db_public_subnet_1.id
+ }
 
-output "cluster_certificate_authority" {
-  value = module.eks.cluster_certificate_authority_data
-}
+ output "public_subnet_id_2" {
+   value = aws_subnet.html_db_public_subnet_2.id
+ }
+
+ output "private_subnet_id_1" {
+   value = aws_subnet.html_db_private_subnet_1.id
+ }
+
+ output "private_subnet_id_2" {
+   value = aws_subnet.html_db_private_subnet_2.id
+ }
